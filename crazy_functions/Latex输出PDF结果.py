@@ -3,7 +3,8 @@ from toolbox import CatchException, report_exception, update_ui_lastest_msg, zip
 from functools import partial
 import glob, os, requests, time, tarfile
 pj = os.path.join
-ARXIV_CACHE_DIR = os.path.expanduser(f"~/arxiv_cache/")
+# ARXIV_CACHE_DIR = os.path.expanduser(f"~/arxiv_cache/")
+ARXIV_CACHE_DIR = "arxiv_cache"
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 工具函数 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # 专业词汇声明  = 'If the term "agent" is used in this section, it should be translated to "智能体". '

@@ -153,3 +153,6 @@ media
 flagged
 request_llms/ChatGLM-6b-onnx-u8s8
 .pre-commit-config.yaml
+
+# arxiv papers download/translation cache, not stored in user home directory
+arxiv_cache/

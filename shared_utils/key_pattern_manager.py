@@ -28,14 +28,20 @@ def is_api2d_key(key):
     return bool(API_MATCH_API2D)
 
 
+def is_pandora_api_key(key):#new add
+    API_MATCH_FREEAI0 = re.match(r"pk-[a-zA-Z0-9-_]{43}$", key)
+    API_MATCH_FREEAI1 = re.match(r"fk-[a-zA-Z0-9-_]{43}$", key)
+    return bool(API_MATCH_FREEAI0) or bool(API_MATCH_FREEAI1)
+
+
 def is_any_api_key(key):
     if ',' in key:
         keys = key.split(',')
         for k in keys:
             if is_any_api_key(k): return True
         return False
-    else:
-        return is_openai_api_key(key) or is_api2d_key(key) or is_azure_api_key(key)
+    else:#new add
+        return is_openai_api_key(key) or is_api2d_key(key) or is_azure_api_key(key) or is_pandora_api_key(key)
 
 
 def what_keys(keys):
@@ -54,7 +60,12 @@ def what_keys(keys):
         if is_azure_api_key(k):
             avail_key_list['Azure Key'] += 1
 
-    return f"检测到： OpenAI Key {avail_key_list['OpenAI Key']} 个, Azure Key {avail_key_list['Azure Key']} 个, API2D Key {avail_key_list['API2D Key']} 个"
+    for k in key_list: # new add
+        if is_pandora_api_key(k):
+            avail_key_list['Pandora Key'] += 1
+
+    # new add
+    return f"检测到： OpenAI Key {avail_key_list['OpenAI Key']} 个, Azure Key {avail_key_list['Azure Key']} 个, API2D Key {avail_key_list['API2D Key']} 个, Pandora Key {avail_key_list['Pandora Key']} 个"
 
 
 def select_api_key(keys, llm_model):
@@ -65,7 +76,9 @@ def select_api_key(keys, llm_model):
     if llm_model.startswith('gpt-'):
         for k in key_list:
             if is_openai_api_key(k): avail_key_list.append(k)
-
+        for k in key_list:# new add
+            if is_pandora_api_key(k): avail_key_list.append(k)
+            
     if llm_model.startswith('api2d-'):
         for k in key_list:
             if is_api2d_key(k): avail_key_list.append(k)

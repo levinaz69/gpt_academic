@@ -200,7 +200,7 @@ def get_crazy_functions():
         },
         "历史上的今天": {
             "Group": "对话",
-            "AsButton": True,
+            "AsButton": False,
             "Info": "查看历史上的今天事件 (这是一个面向开发者的插件Demo) | 不需要输入参数",
             "Function": HotReload(高阶功能模板函数),
         },
@@ -234,7 +234,7 @@ def get_crazy_functions():
         "理解PDF文档内容 （模仿ChatPDF）": {
             "Group": "学术",
             "Color": "stop",
-            "AsButton": False,  # 加入下拉菜单中
+            "AsButton": True,  # 加入下拉菜单中
             "Info": "理解PDF文档的内容并进行回答 | 输入参数为路径",
             "Function": HotReload(理解PDF文档内容标准文件输入),
         },
@@ -313,7 +313,7 @@ def get_crazy_functions():
                 "连接网络回答问题（输入问题后点击该插件，需要访问谷歌）": {
                     "Group": "对话",
                     "Color": "stop",
-                    "AsButton": False,  # 加入下拉菜单中
+                    "AsButton": True,  # 加入下拉菜单中
                     # "Info": "连接网络回答问题（需要访问谷歌）| 输入参数是一个问题",
                     "Function": HotReload(连接网络回答问题),
                 }
@@ -344,7 +344,7 @@ def get_crazy_functions():
                 "解析项目源代码（手动指定和筛选源代码文件类型）": {
                     "Group": "编程",
                     "Color": "stop",
-                    "AsButton": False,
+                    "AsButton": True,
                     "AdvancedArgs": True,  # 调用时，唤起高级参数输入区（默认False）
                     "ArgsReminder": '输入时用逗号隔开, *代表通配符, 加了^代表不匹配; 不输入代表全部匹配。例如: "*.c, ^*.cpp, config.toml, ^*.toml"',  # 高级参数输入区的显示提示
                     "Function": HotReload(解析任意code项目),
@@ -548,7 +548,7 @@ def get_crazy_functions():
                 "Arxiv论文精细翻译（输入arxivID）[需Latex]": {
                     "Group": "学术",
                     "Color": "stop",
-                    "AsButton": False,
+                    "AsButton": True,
                     "AdvancedArgs": True,
                     "ArgsReminder": "如果有必要, 请在此处给出自定义翻译命令, 解决部分词汇翻译不准确的问题。 "
                     + "例如当单词'agent'翻译不准确时, 请尝试把以下指令复制到高级参数区: "
@@ -559,7 +559,7 @@ def get_crazy_functions():
                 "本地Latex论文精细翻译（上传Latex项目）[需Latex]": {
                     "Group": "学术",
                     "Color": "stop",
-                    "AsButton": False,
+                    "AsButton": True,
                     "AdvancedArgs": True,
                     "ArgsReminder": "如果有必要, 请在此处给出自定义翻译命令, 解决部分词汇翻译不准确的问题。 "
                     + "例如当单词'agent'翻译不准确时, 请尝试把以下指令复制到高级参数区: "
@@ -620,7 +620,7 @@ def get_crazy_functions():
                 "动态代码解释器（CodeInterpreter）": {
                     "Group": "智能体",
                     "Color": "stop",
-                    "AsButton": False,
+                    "AsButton": True,
                     "Function": HotReload(函数动态生成),
                 }
             }
