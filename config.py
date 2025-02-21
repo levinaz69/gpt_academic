@@ -19,6 +19,8 @@ DEEPSEEK_API_KEY = ""
 # [step 1-4]>> ( 接入 硅基智能API ) 硅基智能(Siliconflow) API KEY，默认请求地址为"https://api.siliconflow.cn/v1/chat/completions"
 SILICONFLOW_API_KEY = ""
 
+VOLCENGINE_API_KEY = ""
+
 # [step 2]>> 改为True应用代理。如果使用本地或无地域限制的大模型时，此处不修改；如果直接在海外服务器部署，此处不修改
 USE_PROXY = False
 if USE_PROXY:

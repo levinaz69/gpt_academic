@@ -164,9 +164,12 @@ def get_predict_function(
             raise RuntimeError(f"APIKEY为空,请检查配置文件的{APIKEY}")
         if inputs == "":
             inputs = "你好👋"
+
+        model_name = model_info[llm_kwargs['llm_model']].get('model_name_override', llm_kwargs['llm_model'])
+
         headers, payload = generate_message(
             input=inputs,
-            model=llm_kwargs["llm_model"],
+            model=model_name,
             key=APIKEY,
             history=history,
             max_output_token=max_output_token,
@@ -300,9 +303,11 @@ def get_predict_function(
             )  # 刷新界面
             time.sleep(2)
 
+        model_name = model_info[llm_kwargs['llm_model']].get('model_name_override', llm_kwargs['llm_model'])
+
         headers, payload = generate_message(
             input=inputs,
-            model=llm_kwargs["llm_model"],
+            model=model_name,
             key=APIKEY,
             history=history,
             max_output_token=max_output_token,
