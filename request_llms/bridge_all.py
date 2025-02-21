@@ -1301,7 +1301,8 @@ for model in [m for m in AVAIL_LLM_MODELS if m.startswith("siliconflow-")]:
 
 
 # -=-=-=-=-=-=- 火山方舟大模型在线API -=-=-=-=-=-=-
-volcengine_noui, volcengine_ui = get_predict_function(
+from .oai_std_model_volcengine import get_predict_function as get_predict_function_volcengine
+volcengine_noui, volcengine_ui = get_predict_function_volcengine(
     api_key_conf_name="VOLCENGINE_API_KEY",
     max_output_token=4096,
     disable_proxy=False,
