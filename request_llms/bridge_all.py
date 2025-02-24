@@ -953,17 +953,17 @@ if any(item in yi_models for item in AVAIL_LLM_MODELS):
 
 
 # -=-=-=-=-=-=- Grok model from x.ai -=-=-=-=-=-=-
-grok_models = ["grok-beta"]
+grok_models = ["grok-2-latest"]
 if any(item in grok_models for item in AVAIL_LLM_MODELS):
     try:
-        grok_beta_128k_noui, grok_beta_128k_ui = get_predict_function(
+        grok_fn_noui, grok_fn_ui = get_predict_function(
             api_key_conf_name="GROK_API_KEY", max_output_token=8192, disable_proxy=False
             )
         
         model_info.update({
-            "grok-beta": {
-                "fn_with_ui": grok_beta_128k_ui,
-                "fn_without_ui": grok_beta_128k_noui,
+            "grok-2-latest": {
+                "fn_with_ui": grok_fn_ui,
+                "fn_without_ui": grok_fn_noui,
                 "can_multi_thread": True,  
                 "endpoint": grok_model_endpoint,
                 "max_token": 128000,
